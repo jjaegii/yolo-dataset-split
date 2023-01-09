@@ -24,11 +24,23 @@ def copy_all_file(file_list, new_path):
 start_time = time.time() # 작업 시작 시간 
 
 # 경로 설정
-src_path = "./top_five/val_d" # 기존 폴더 경로
-new_path = "./top_five/val" # 옮길 폴더 경로
+train_src_path = "./split_dataset/train" # 기존 폴더 경로
+train_new_path = "./merged_dataset/train" # 옮길 폴더 경로
 
-file_list = read_all_file(src_path)
-copy_all_file(file_list, new_path)
+file_list = read_all_file(train_src_path)
+copy_all_file(file_list, train_new_path)
 
 print("=" * 40)
-print("러닝 타임 : {}".format(time.time() - start_time)) # 총 소요시간 계산
+print("train 합치는데 걸린 시간 : {}".format(time.time() - start_time)) # 총 소요시간 계산
+
+start_time = time.time() # 작업 시작 시간 
+
+# 경로 설정
+val_src_path = "./split_dataset/val" # 기존 폴더 경로
+val_new_path = "./merged_dataset/val" # 옮길 폴더 경로
+
+file_list = read_all_file(val_src_path)
+copy_all_file(file_list, val_new_path)
+
+print("=" * 40)
+print("val 합치는데 걸린 시간 : {}".format(time.time() - start_time)) # 총 소요시간 계산
